@@ -247,6 +247,26 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /var/run/docker.sock:/var/run/docker.sock
 
+  webserver:
+    image: nginx:latest
+    ports:
+      - 80:80
+      - 443:443
+    restart: unless-stopped
+    volumes:
+      - ./nginx/conf/:/etc/nginx/conf.d/:ro
+      - ./nginx/certbot/www/:/var/www/certbot/:ro
+    networks:
+      - ar-io-network
+  certbot:
+    image: certbot/certbot:latest
+    volumes:
+      - ./nginx/certbot/www/:/var/www/certbot/:rw
+      - ./nginx/certbot/conf/:/etc/letsencrypt/:rw
+    networks:
+      - ar-io-network
+
+
 networks:
   ar-io-network:
     name: ar-io-network
