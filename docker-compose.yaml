@@ -215,6 +215,7 @@ services:
       - AO_MU_URL=${AO_MU_URL:-}
       - AO_GATEWAY_URL=${AO_GATEWAY_URL:-}
       - AO_GRAPHQL_URL=${AO_GRAPHQL_URL:-}
+      - O_CU_URL=https://cu.ardrive.io
     networks:
       - ar-io-network
 

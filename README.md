@@ -95,6 +95,9 @@ AR_IO_WALLET="<your wallet address>"
 
 # Root Host for ArNS
 ARNS_ROOT_HOST="your-domain"
+
+# ARIO CU for the observer
+AO_CU_URL=https://cu.ardrive.io
 ```
 
 ## Run the Node
